@@ -1,4 +1,17 @@
+import { useEffect, useState } from "react";
+import Client from "./client/Client";
+
 function App() {
+  const [client, setClient] = useState();
+
+  useEffect(() => {
+    const c = new Client();
+    (async () => {
+      await c.connect();
+      setClient(c);
+    })();
+  }, []);
+
   return (
     <>
       <header className="px-4 py-2 bg-blue-200">
@@ -6,6 +19,9 @@ function App() {
       </header>
       <main className="px-4 py-2">
         Main content
+        <p>
+          Client connected: {!!client ? 'true' : 'false'}
+        </p>
       </main>
     </>
   );

@@ -6,9 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start-client`
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
+
+### `num run start-server`
+
+Runs the server in watch mode. Serves a websockets server at http://localhost:8080.
 
 ### `npm test`
 
@@ -16,7 +20,7 @@ Launches the test runner in the interactive watch mode. See the section about [r
 
 ### `npm run deploy`
 
-Deploys directly to `https://story.stevenxu.ca/`. Requires SSH access to the server. You can also just run a build using `npm run build` and deploy it anywhere.
+Deploys the client directly to `https://story.stevenxu.ca/`. Requires SSH access to the server. You can also just run a build using `npm run build` and deploy it anywhere.
 
 ### `npm run eject`
 

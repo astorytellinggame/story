@@ -9,19 +9,23 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "autoprefixer": "^9.8.6",
+    "nodemon": "^2.0.6",
+    "pm2": "^4.5.1",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "ws": "^7.4.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start-client": "craco start",
+    "start-server": "nodemon server/server.js",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "deploy": "craco build && scp -r build/* story@ssh.stevenxu.ca:story/"
+    "build-client": "craco build",
+    "deploy": "ssh story@ssh.stevenxu.ca ./deploy.sh"
   },
   "eslintConfig": {
     "extends": [
