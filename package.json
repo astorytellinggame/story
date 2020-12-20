@@ -20,9 +20,10 @@
     "web-vitals": "^0.2.4",
     "ws": "^7.4.1"
   },
+  "cracoConfig": "craco.config.cjs",
   "scripts": {
     "start-client": "craco start",
-    "start-server": "nodemon server/main.js",
+    "start-server": "nodemon -w ./server server/main.js",
     "test": "craco test",
     "eject": "react-scripts eject",
     "build-client": "craco build",

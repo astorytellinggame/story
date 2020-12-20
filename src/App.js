@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import Client from "./client/Client";
 
 function App() {
-  const [client, setClient] = useState();
+  const [status, setStatus] = useState('unknown');
 
   useEffect(() => {
     const c = new Client();
-    (async () => {
-      await c.connect();
-      setClient(c);
-    })();
+    c.subscribe((client) => {
+      setStatus(client.status);
+    });
+    c.connect();
+    return c.close.bind(c);
   }, []);
 
   return (
@@ -20,7 +21,7 @@ function App() {
       <main className="px-4 py-2">
         Main content
         <p>
-          Client connected: {!!client ? 'true' : 'false'}
+          Client status: {status}
         </p>
       </main>
     </>
