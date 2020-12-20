@@ -1,16 +1,16 @@
 export default class Client {
   constructor() {
-    this.status = 'initialized';
+    this.status = "initialized";
     this.callbacks = new Set();
   }
 
   connect() {
-    this.status = 'connecting';
+    this.status = "connecting";
     this.callbacks.forEach((cb) => cb(this));
 
     const l = window.location;
     const protocol = l.protocol === "https:" ? "wss:" : "ws:";
-    const suffix = protocol === 'wss:' ? '/ws' : ':8080';
+    const suffix = protocol === "wss:" ? "/ws" : ":8080";
     this.socket = new WebSocket(`${protocol}//${l.hostname}${suffix}`);
     this.socket.onopen = this.handleOpen.bind(this);
     this.socket.onerror = this.handleError.bind(this);
@@ -23,16 +23,15 @@ export default class Client {
   }
 
   handleClose(event) {
-    this.status = 'closed';
+    this.status = "closed";
     this.callbacks.forEach((cb) => cb(this));
     this.callbacks.clear();
   }
 
-  handleError(event) {
-  }
+  handleError(event) {}
 
   handleOpen(event) {
-    this.status = 'connected';
+    this.status = "connected";
     this.callbacks.forEach((cb) => {
       cb(this);
     });
