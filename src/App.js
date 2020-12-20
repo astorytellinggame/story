@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Client from "./client/Client";
+import Header from "./header/Header";
+import Name from "./name/Name";
 
 function App() {
   const [status, setStatus] = useState("unknown");
+  const [client, setClient] = useState();
 
   useEffect(() => {
     const c = new Client();
@@ -10,22 +13,17 @@ function App() {
       setStatus(client.status);
     });
     c.connect();
+    setClient(c);
     return c.close.bind(c);
   }, []);
 
   return (
-    <>
-      <header className="px-4 py-2 bg-blue-200">
-        <a href="/" className="text-blue-800 font-medium">
-          A Storytelling Game
-        </a>
-      </header>
-      <main className="px-4 py-2">
-        Main content
-        <p>Client status: {status}</p>
-        {process.env.NODE_ENV}
+    <div className="flex flex-col min-h-screen">
+      <Header status={status}></Header>
+      <main className="flex flex-grow items-center justify-center bg-gray-200">
+        {status === "connected" && <Name client={client}></Name>}
       </main>
-    </>
+    </div>
   );
 }
 
