@@ -23,6 +23,7 @@ function App() {
       <main className="px-4 py-2">
         Main content
         <p>Client status: {status}</p>
+        {process.env.NODE_ENV}
       </main>
     </>
   );

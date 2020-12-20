@@ -1,11 +1,12 @@
 import WebSocket from "ws";
-import { log } from "./log";
+import { log } from "./log.js";
 
-let uid = 1;
+const port = process.env.NODE_ENV === "test" ? 8081 : 8080;
 
 export default class Server {
   constructor() {
-    this.wss = new WebSocket.Server({ port: 8080 });
+    let uid = 1;
+    this.wss = new WebSocket.Server({ port });
     this.wss.on("connection", function connection(ws) {
       const id = uid++;
       log(`client (${id}) connection received`);
