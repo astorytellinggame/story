@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "dependencies": {
+  "devDependencies": {
     "@craco/craco": "^6.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "autoprefixer": "^9.8.6",
+    "husky": "^5.0.6",
     "nodemon": "^2.0.6",
     "pm2": "^4.5.1",
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -53,9 +55,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "devDependencies": {
-    "husky": "^5.0.6",
-    "pretty-quick": "^3.1.0"
   }
 }
