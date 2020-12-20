@@ -2,7 +2,6 @@
   "name": "story",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "devDependencies": {
     "@craco/craco": "^6.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
@@ -26,7 +25,7 @@
   "cracoConfig": "craco.config.cjs",
   "scripts": {
     "start-client": "craco start",
-    "start-server": "nodemon -w ./server server/main.js",
+    "start-server": "NODE_ENV=development nodemon -w ./server server/main.js",
     "test": "craco test",
     "eject": "react-scripts eject",
     "build-client": "craco build",
